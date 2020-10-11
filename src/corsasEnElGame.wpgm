@@ -1,7 +1,24 @@
+import rodados.*
 import wollok.game.*
 
+
 program corsasEnElGame {
-	// hacer las inicializaciones necesarias 
 	
+	game.title(" El juego de Cachito")
+	
+	game.width(12)
+	game.height(12)
+	
+	const cachito = new Corsa(position = new Position( x = 6, y = 6), color = rojo)
+	game.addVisual(cachito)
+	
+	keyboard.left().onPressDo({cachito.moveteIzquierda()})
+	keyboard.up().onPressDo({cachito.moveteArriba()})
+	keyboard.down().onPressDo({cachito.moveteAbajo()})
+	keyboard.right().onPressDo({cachito.moveteDerecha()})
+	
+	keyboard.v().onPressDo({ cachito.cambiarAVerde()})
+	keyboard.a().onPressDo({ cachito.cambiarAAzul()})
+	keyboard.r().onPressDo({ cachito.cambiarARojo()})
 	game.start()
 }
